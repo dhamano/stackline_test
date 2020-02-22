@@ -1,0 +1,80 @@
+.sidebar {
+    min-width: 300px;
+    width: calc(30% - 20px);
+    margin: 0 10px;
+    padding: 25px;
+    background: white;
+    text-align: center;
+
+    img {
+        $img-size: 100%;
+        width: $img-size;
+    }
+
+    h1 {
+        font: bold 1rem/1.25em Roboto, sans-serif;
+    }
+
+    h2 {
+        font: normal 0.625rem/1.25em Roboto, sans-serif;
+    }
+
+    .tags {
+        margin: 10px -25px;
+        padding: 10px 25px;
+        text-align: left;
+        border-top: 1px solid #f2f3f7;
+        border-bottom: 1px solid #f7f8fb;
+
+        div {
+            margin: 5px;
+            padding: 8px 20px;
+            color: #515d6c;
+            font-size: 0.625rem;
+            border: 1px solid #eaedf3;
+            display: inline-block;
+            border-radius: 6px;
+        }
+    }
+
+    .views {
+        margin: 0 0 0 4px;
+        padding: 0;
+        text-align: left;
+        list-style-type: none;
+
+        li {
+            height: 44px;
+            color: #9eabbc;
+            text-transform: uppercase;
+            text-indent: 38px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            line-height: 1.833em;
+            letter-spacing: 0.75px;
+
+            &.active {
+                color: #354052;
+            }
+
+            &::before {
+                $size: 22px;
+                content: '';
+                width: $size;
+                height: $size;
+                display: block;
+                position: absolute;
+            }
+
+            &.overview::before {
+                background-image: url('../imgs/icon-home.png');
+            }
+
+            &.sales::before {
+                background-image: url('../imgs/icon-graph.png');
+            }
+        }
+
+    }
+    
+}

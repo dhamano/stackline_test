@@ -1,0 +1,13 @@
+.App {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #f6f8fa;
+
+    section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+}

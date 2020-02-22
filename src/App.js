@@ -1,26 +1,60 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { getItemList } from './store/actions';
+
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Graph from './components/Graph';
+import Listings from './components/Listings';
+
+class App extends React.Component {
+
+    componentDidMount() {
+        this.props.getItemList();
+    };
+
+    render () {
+        console.log("PROPS", this.props);
+        const sbProps = {
+            id:         this.props.id,
+            image:      this.props.image,
+            title:      this.props.title,
+            subtitle:   this.props.subtitle,
+            tags:       this.props.tags
+        }
+
+        const gProps = {
+            sales:      this.props.sales
+        }
+
+        return (
+            <div className="App">
+                <Header />
+                <section>
+                    <Sidebar {...sbProps} />
+                    <main>
+                        <Graph />
+                        <Listings />
+                    </main>
+                </section>
+            </div>
+        )
+    };
 }
 
-export default App;
+const mapStateToProps = state => ({
+    error:      state.itemReducer.error,
+    id:         state.itemReducer.id,
+    title:      state.itemReducer.title,
+    image:      state.itemReducer.image,
+    subtitle:   state.itemReducer.subtitle,
+    brand:      state.itemReducer.brand,
+    reviews:    state.itemReducer.reviews,
+    retailer:   state.itemReducer.retailer,
+    details:    state.itemReducer.details,
+    tags:       state.itemReducer.tags,
+    sales:      state.itemReducer.sales,
+});
+
+export default connect( mapStateToProps, { getItemList } )(App);
