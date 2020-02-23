@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import ListingRow from './ListingRow';
 
@@ -88,6 +89,17 @@ const Listings = props => {
             </tbody>
         </table>
     )
+}
+
+Listings.propTypes = {
+    sales:  PropTypes.arrayOf(PropTypes.shape({
+        weekEnding:     PropTypes.string,
+        retailSales:    PropTypes.number,
+        wholesaleSales: PropTypes.number,
+        unitsSold:      PropTypes.number,
+        retailerMargin: PropTypes.number
+    })),
+    keys:   PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Listings;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 import { getItemList } from './store/actions';
 
@@ -67,5 +68,19 @@ const mapStateToProps = state => {
         sales:      state.itemReducer.sales,
     }
 };
+
+App.propTypes = {
+    error:      PropTypes.string,
+    id:         PropTypes.string,
+    title:      PropTypes.string,
+    image:      PropTypes.string,
+    subtitle:   PropTypes.string,
+    brand:      PropTypes.string,
+    reviews:    PropTypes.arrayOf(PropTypes.object),
+    retailer:   PropTypes.string,
+    details:    PropTypes.arrayOf(PropTypes.string),
+    tags:       PropTypes.arrayOf(PropTypes.string),
+    sales:      PropTypes.arrayOf(PropTypes.object)
+}
 
 export default connect( mapStateToProps, { getItemList } )(App);

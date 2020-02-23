@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import * as d3 from 'd3';
 
 const GraphDisplay = props => {
@@ -12,6 +13,17 @@ const GraphDisplay = props => {
         </div>
     )
 
+}
+
+GraphDisplay.propTypes = {
+    sales:  PropTypes.arrayOf(PropTypes.shape({
+        weekEnding:     PropTypes.string,
+        retailSales:    PropTypes.number,
+        wholesaleSales: PropTypes.number,
+        unitsSold:      PropTypes.number,
+        retailerMargin: PropTypes.number
+    })),
+    keys:   PropTypes.arrayOf(PropTypes.string)
 }
 
 export default GraphDisplay;
