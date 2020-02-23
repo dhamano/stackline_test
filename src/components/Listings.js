@@ -5,8 +5,6 @@ import ListingRow from './ListingRow';
 const Listings = props => {
     const [theList, setTheList] = useState(props.sales);
 
-    // console.log('theList',theList);
-
     useEffect( () => {
         setTheList(props.sales);
     }, [props])

@@ -4,11 +4,15 @@ import { connect } from "react-redux";
 import { getItemList } from './store/actions';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import Graph from './components/Graph';
 import Listings from './components/Listings';
 
 class App extends React.Component {
+    state = {
+        data: this.props.sales
+    }
 
     componentDidMount() {
         this.props.getItemList();
@@ -42,23 +46,26 @@ class App extends React.Component {
                         <Listings {...theSales} />
                     </main>
                 </section>
+                <Footer />
             </div>
         )
     };
 }
 
-const mapStateToProps = state => ({
-    error:      state.itemReducer.error,
-    id:         state.itemReducer.id,
-    title:      state.itemReducer.title,
-    image:      state.itemReducer.image,
-    subtitle:   state.itemReducer.subtitle,
-    brand:      state.itemReducer.brand,
-    reviews:    state.itemReducer.reviews,
-    retailer:   state.itemReducer.retailer,
-    details:    state.itemReducer.details,
-    tags:       state.itemReducer.tags,
-    sales:      state.itemReducer.sales,
-});
+const mapStateToProps = state => {
+    return {
+        error:      state.itemReducer.error,
+        id:         state.itemReducer.id,
+        title:      state.itemReducer.title,
+        image:      state.itemReducer.image,
+        subtitle:   state.itemReducer.subtitle,
+        brand:      state.itemReducer.brand,
+        reviews:    state.itemReducer.reviews,
+        retailer:   state.itemReducer.retailer,
+        details:    state.itemReducer.details,
+        tags:       state.itemReducer.tags,
+        sales:      state.itemReducer.sales,
+    }
+};
 
 export default connect( mapStateToProps, { getItemList } )(App);

@@ -1,6 +1,6 @@
 .sidebar {
     min-width: 300px;
-    width: calc(30% - 20px);
+    width: calc(25% - 20px);
     margin: 0 10px;
     padding: 25px;
     background: white;
@@ -12,11 +12,15 @@
     }
 
     h1 {
-        font: bold 1rem/1.25em Roboto, sans-serif;
+        color: #3c4859;
+        font: bold 1.25rem/1.25em Roboto, sans-serif;
+        letter-spacing: 0.75px;
     }
 
     h2 {
-        font: normal 0.625rem/1.25em Roboto, sans-serif;
+
+        color: #b0bfd3;
+        font: normal 1rem/1.25em Roboto, sans-serif;
     }
 
     .tags {
@@ -30,7 +34,7 @@
             margin: 5px;
             padding: 8px 20px;
             color: #515d6c;
-            font-size: 0.625rem;
+            font-size: 1rem;
             border: 1px solid #eaedf3;
             display: inline-block;
             border-radius: 6px;
@@ -49,7 +53,7 @@
             text-transform: uppercase;
             text-indent: 38px;
             font-weight: bold;
-            font-size: 0.75rem;
+            font-size: 1rem;
             line-height: 1.833em;
             letter-spacing: 0.75px;
 
