@@ -15,7 +15,6 @@ class App extends React.Component {
     };
 
     render () {
-        console.log("PROPS", this.props);
         const sbProps = {
             id:         this.props.id,
             image:      this.props.image,
@@ -23,9 +22,14 @@ class App extends React.Component {
             subtitle:   this.props.subtitle,
             tags:       this.props.tags
         }
+        let theSales = { sales: [], keys: []};
 
-        const gProps = {
-            sales:      this.props.sales
+        if (this.props.sales.length > 0) {
+            let objKeys = Object.keys(this.props.sales[0]);
+            theSales = {
+                sales:      this.props.sales,
+                keys:       objKeys
+            }
         }
 
         return (
@@ -34,8 +38,8 @@ class App extends React.Component {
                 <section>
                     <Sidebar {...sbProps} />
                     <main>
-                        <Graph />
-                        <Listings />
+                        <Graph {...theSales} />
+                        <Listings {...theSales} />
                     </main>
                 </section>
             </div>
